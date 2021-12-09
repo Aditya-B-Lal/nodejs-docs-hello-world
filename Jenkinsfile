@@ -7,10 +7,10 @@ pipeline {
                 echo 'Hello World'
             }
         }
-        stage('Build Docker Image') {
+         stage('Build Docker Image') {
             steps {
                 script {
-                  sh 'docker build -t mydockerimage .'
+                  sh 'docker build -t mypipeline .'
                 }
             }
         }
@@ -20,11 +20,10 @@ pipeline {
                  withCredentials([string(credentialsId: 'docker_pipeline', variable: 'dockerhubpwd')]){
                     sh 'docker login -u 9526584898 -p ${dockerhubpwd}'
                  }  
-                 sh 'docker push 9526584898/mydockerimage'
+                 sh 'docker push 9526584898/newpipeline:mypipeline'
                 }
             }
         }
     }
 }
-          
-    
+            
