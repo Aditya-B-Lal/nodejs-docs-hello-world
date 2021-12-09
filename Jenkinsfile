@@ -19,7 +19,7 @@ pipeline {
                 script {
                 
                     sh 'docker login -u 9526584898 -p Aditya123*'
-                    sh 'docker push 9526584898/newpipeline:mypipeline'
+                    sh 'docker push 9526584898/mypipeline'
                 }
             }
         }
