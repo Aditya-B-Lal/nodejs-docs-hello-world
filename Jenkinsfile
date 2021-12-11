@@ -10,7 +10,7 @@ pipeline {
          stage('Build Docker Image') {
             steps {
                 script {
-                  sh 'docker build -t mypipeline .'
+                  sh 'docker pull postgres'
                 }
             }
         }
@@ -20,11 +20,10 @@ pipeline {
                 script {
                      
                     sh 'docker login -u 9526584898 -p Aditya123*'
-                    sh 'docker tag mypipeline 9526584898/newpipeline:mypipeline'
-                    sh 'docker push 9526584898/newpipeline:mypipeline'
+                    sh 'docker tag postgres 9526584898/latest:postgres'
+                    sh 'docker push 9526584898/latest:postgres'
                 }
             }
         }
     }
 }
- 
